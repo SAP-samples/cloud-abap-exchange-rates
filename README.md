@@ -1,4 +1,4 @@
-# cloud-abap-exchange-rates
+# Description
 This example code helps loading currency exchange rates from the ECB into an SAP CP ABAP environment system for utilization in the currency conversion functionality. 
 
 ## Prerequisites
@@ -53,4 +53,4 @@ This code is "as is" and shall provide an idea on what to do. If you find a "rea
 With the state "as is" actually no contribution is intended; but as usual in Github, please feel free to clone this repository and use it for your own benefit.
 
 ## License
-Copyright (c) 2020 SAP SE or an SAP affiliate company. All rights reserved. This file is licensed under the Apache Software License, version 2.0 except as noted otherwise in the [LICENSE](LICENSE.txt) file.
+Copyright (c) 2020 SAP SE or an SAP affiliate company. All rights reserved. This file is licensed under the Apache Software License, version 2.0 except as noted otherwise in the [LICENSE](LICENSE) file.
