@@ -1,9 +1,9 @@
 # Description
-This example code helps loading currency exchange rates from the ECB into an SAP CP ABAP environment system for utilization in the currency conversion functionality. 
+This example code helps loading currency exchange rates from the European Central Bank into an SAP Cloud Platform, ABAP environment system for utilization in the currency conversion functionality. 
 
 ## Prerequisites
 
-To use this sample code you need to have access to an SAP CP ABAP environment system with approriately set up ABAP Development Tools, including abapGit for import of this repository. Also you need a target package to load the code of this repository into.
+To use this sample code you need to have access to an SAP Cloud Platform, ABAP environment system with approriately set up ABAP Development Tools, including abapGit for import of this repository. Also you need a target package to load the code of this repository into.
 
 ## Import in ADT
 
