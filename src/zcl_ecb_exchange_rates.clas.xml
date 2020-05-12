@@ -5,7 +5,7 @@
    <VSEOCLASS>
     <CLSNAME>ZCL_ECB_EXCHANGE_RATES</CLSNAME>
     <LANGU>E</LANGU>
-    <DESCRIPT>Get exchange rates from the ECB</DESCRIPT>
+    <DESCRIPT>Retrieve ECB exchange rates via JSON service</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>
