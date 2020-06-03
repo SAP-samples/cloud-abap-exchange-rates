@@ -16,10 +16,10 @@ define view zv_curr_conv_test
         round => '',
         source_currency => currency,
         target_currency => cast('USD' as abap.cuky),
-        exchange_rate_type => cast('M' as abap.char(4)),
+        exchange_rate_type => 'EURX',
         exchange_rate_date => cast($session.system_date as abap.dats)
-                         )     as PriceInUSD,
-      cast('USD' as abap.cuky) as USCurrency,
+                         )         as PriceInUSD,
+      cast('USD' as abap.cuky)     as USCurrency,
       @EndUserText.label: 'Price (in Australian Dollars)'
       @Semantics.amount.currencyCode: 'AUCURRENCY'
       currency_conversion(
@@ -28,10 +28,10 @@ define view zv_curr_conv_test
         round => '',
         source_currency => currency,
         target_currency => cast('AUD' as abap.cuky),
-        exchange_rate_type => cast('M' as abap.char(4)),
+        exchange_rate_type => 'EURX',
         exchange_rate_date => cast($session.system_date as abap.dats)
-                         )     as PriceInAUD,
-      cast('AUD' as abap.cuky) as AUCurrency,
+                         )         as PriceInAUD,
+      cast('AUD' as abap.cuky)     as AUCurrency,
       @EndUserText.label: 'Price (in Indonesian Rupiahs)'
       @Semantics.amount.currencyCode: 'IDCURRENCY'
       currency_conversion(
@@ -40,8 +40,9 @@ define view zv_curr_conv_test
         round => '',
         source_currency => currency,
         target_currency => cast('IDR' as abap.cuky),
-        exchange_rate_type => cast('M' as abap.char(4)),
-        exchange_rate_date => cast($session.system_date as abap.dats)
-                         )     as PriceInIDR,
-      cast('IDR' as abap.cuky) as IDcurrency
+        exchange_rate_type => 'EURX',
+        exchange_rate_date => cast($session.system_date as abap.dats),
+        decimal_shift => '',
+        decimal_shift_back => '' ) as PriceInIDR,
+      cast('IDR' as abap.cuky)     as IDcurrency
 }
