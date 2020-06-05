@@ -13,7 +13,7 @@ define view entity zv_curr_conv_test
         round => '',
         source_currency => currency,
         target_currency => cast('USD' as abap.cuky),
-        exchange_rate_type => 'M',
+        exchange_rate_type => 'EURX',
         exchange_rate_date => $session.system_date
                          )     as PriceInUSD,
       cast('USD' as abap.cuky) as USCurrency,
@@ -24,7 +24,7 @@ define view entity zv_curr_conv_test
         round => '',
         source_currency => currency,
         target_currency => cast('AUD' as abap.cuky),
-        exchange_rate_type => 'M',
+        exchange_rate_type => 'EURX',
         exchange_rate_date => $session.system_date
                          )     as PriceInAUD,
       cast('AUD' as abap.cuky) as AUCurrency,
