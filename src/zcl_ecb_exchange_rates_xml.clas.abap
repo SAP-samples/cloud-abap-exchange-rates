@@ -7,33 +7,31 @@ CLASS zcl_ecb_exchange_rates_xml DEFINITION
     INTERFACES if_oo_adt_classrun.
   PROTECTED SECTION.
   PRIVATE SECTION.
-"!  URL to ECB currency exchange rates in XML format
-"!  Exchange rate information is provided by the European Central Bank through their API portal
-"!  Please refer to https://www.ecb.europa.eu/home/disclaimer/html/index.en.html for dsiclaimer
-"!  and copyright
-"!  Copyright for the entire content of this website: European Central Bank, Frankfurt am Main, Germany.
-    CONSTANTS: gc_url TYPE string VALUE 'https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml'.
-"!   rate type of current values; note: default customizing "should" work with EURX; see method store_rates
-"!    CONSTANTS: gc_rate_type TYPE cl_exchange_rates=>ty_exchange_rate-rate_type VALUE 'EURX',
-"!               gc_base      TYPE cl_exchange_rates=>ty_exchange_rate-from_curr VALUE 'EUR'.
-"!   type and data for XML processing
-    TYPES: BEGIN OF ty_entry,
-             level  TYPE i,
-             parent TYPE string,
-             name   TYPE string,
-             attr   TYPE string,
-             value  TYPE string,
-           END OF ty_entry.
-    CLASS-DATA: t_entry TYPE TABLE OF ty_entry.
-"!   retrieved information for display; may be omitted if processed in "dark mode"
-    CLASS-DATA: g_result TYPE cl_exchange_rates=>ty_messages,
-                g_rates  TYPE cl_exchange_rates=>ty_exchange_rates.
-"!   method to retrieve the exchange rates from the ECB as json file
-    CLASS-METHODS: get_rates RETURNING VALUE(exchangerates) TYPE xstring.
-"!   method to process the currency exchange rates
-    CLASS-METHODS: parse_rates IMPORTING exchangerates TYPE xstring.
-"!   method to store the rates in the system
-    CLASS-METHODS: store_rates.
+    "!  URL to ECB currency exchange rates in XML format
+    "!  Exchange rate information is provided by the European Central Bank through their API portal
+    "!  Please refer to https://www.ecb.europa.eu/home/disclaimer/html/index.en.html for disclaimer
+    "!  and copyright
+    "!  Copyright for the entire content of this website: European Central Bank, Frankfurt am Main, Germany.
+    CONSTANTS gc_url TYPE string VALUE 'https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml'.
+    TYPES:
+      "!   type and data for XML processing
+      BEGIN OF ty_entry,
+        level  TYPE i,
+        parent TYPE string,
+        name   TYPE string,
+        attr   TYPE string,
+        value  TYPE string,
+      END OF ty_entry.
+    CLASS-DATA t_entry TYPE TABLE OF ty_entry.
+    "!   retrieved information for display; may be omitted if processed in "dark mode"
+    CLASS-DATA g_result TYPE cl_exchange_rates=>ty_messages.
+    CLASS-DATA            g_rates  TYPE cl_exchange_rates=>ty_exchange_rates.
+    "!   method to retrieve the exchange rates from the ECB as json file
+    CLASS-METHODS get_rates RETURNING VALUE(exchangerates) TYPE xstring.
+    "!   method to process the currency exchange rates
+    CLASS-METHODS parse_rates IMPORTING exchangerates TYPE xstring.
+    "!   method to store the rates in the system
+    CLASS-METHODS store_rates.
 ENDCLASS.
 
 

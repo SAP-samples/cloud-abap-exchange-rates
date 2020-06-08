@@ -11,14 +11,14 @@ CLASS zcl_ecb_exchange_rates_json DEFINITION
     "!  The JSON API to ECB information has been provided under MIT license by
     "!  Madis Väin - https://github.com/madisvain
     "!
-    CONSTANTS: gc_url TYPE string VALUE 'https://api.exchangeratesapi.io/latest'.
+    CONSTANTS gc_url TYPE string VALUE 'https://api.exchangeratesapi.io/latest'.
     "!  retrieved information for display; may be omitted if processed in "dark mode"
-    CLASS-DATA: g_exchange_rates TYPE cl_exchange_rates=>ty_exchange_rates.
-    CLASS-DATA: g_result TYPE cl_exchange_rates=>ty_messages.
+    CLASS-DATA g_exchange_rates TYPE cl_exchange_rates=>ty_exchange_rates.
+    CLASS-DATA g_result TYPE cl_exchange_rates=>ty_messages.
     "!  method to retrieve the exchange rates from the ECB as json file
-    CLASS-METHODS: get_rates RETURNING VALUE(exchangerates) TYPE string.
+    CLASS-METHODS get_rates RETURNING VALUE(exchangerates) TYPE string.
     "!  method to process and store the currency exchange rates
-    CLASS-METHODS: store_rates IMPORTING exchangerates TYPE string.
+    CLASS-METHODS store_rates IMPORTING exchangerates TYPE string.
 ENDCLASS.
 
 
