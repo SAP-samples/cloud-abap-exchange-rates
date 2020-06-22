@@ -36,9 +36,7 @@ define view entity zv_curr_conv_test
         source_currency => currency,
         target_currency => cast('IDR' as abap.cuky),
         exchange_rate_type => 'EURX',
-        exchange_rate_date => $session.system_date,
-        decimal_shift => '',
-        decimal_shift_back => ''
+        exchange_rate_date => $session.system_date
                          )     as PriceInIDR,
       cast('IDR' as abap.cuky) as IDcurrency
 }
