@@ -25,7 +25,7 @@ CLASS zcl_ecb_exchange_rates_xml DEFINITION
     CLASS-DATA t_entry TYPE TABLE OF ty_entry.
     "!   retrieved information for display; may be omitted if processed in "dark mode"
     CLASS-DATA g_result TYPE cl_exchange_rates=>ty_messages.
-    CLASS-DATA            g_rates  TYPE cl_exchange_rates=>ty_exchange_rates.
+    CLASS-DATA g_rates  TYPE cl_exchange_rates=>ty_exchange_rates.
     "!   method to retrieve the exchange rates from the ECB as json file
     CLASS-METHODS get_rates RETURNING VALUE(exchangerates) TYPE xstring.
     "!   method to process the currency exchange rates
@@ -110,6 +110,11 @@ CLASS zcl_ecb_exchange_rates_xml IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD store_rates.
+*   Define exchange rate type and source currency exchange rate of import
+*   There is currently an error in exchange rate type customizing; use 'EURX' instead
+*   as M points to EURX as alternative exchange rate type; this "should" not be the case,
+*   see note 440870
+*    CONSTANTS: gc_rate_type TYPE cl_exchange_rates=>ty_exchange_rate-rate_type VALUE 'M',
     CONSTANTS: gc_rate_type TYPE cl_exchange_rates=>ty_exchange_rate-rate_type VALUE 'EURX',
                gc_base      TYPE cl_exchange_rates=>ty_exchange_rate-from_curr VALUE 'EUR'.
 
@@ -121,8 +126,8 @@ CLASS zcl_ecb_exchange_rates_xml IMPLEMENTATION.
 
     LOOP AT t_entry INTO w_entry.
 *     process the actual rates
-      w_rate-rate_type = 'EURX'.
-      w_rate-from_curr = 'EUR'.
+      w_rate-rate_type = gc_rate_type.
+      w_rate-from_curr = gc_base.
       CASE w_entry-attr.
         WHEN 'time'.
           REPLACE ALL OCCURRENCES OF '-' IN w_entry-value WITH ''.
