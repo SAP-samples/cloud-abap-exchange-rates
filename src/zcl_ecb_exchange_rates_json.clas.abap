@@ -50,11 +50,8 @@ CLASS zcl_ecb_exchange_rates_json IMPLEMENTATION.
 
   METHOD store_rates.
 *   rate type of current values; note: default customizing "should" work with the default 'M'
-*   There is currently an error in exchange rate type customizing; use 'EURX' instead
-*   as M points to EURX as alternative exchange rate type; this "should" not be the case,
-*   see note 440870
-*   CONSTANTS: gc_rate_type TYPE cl_exchange_rates=>ty_exchange_rate-rate_type VALUE 'M'.
-    CONSTANTS: gc_rate_type TYPE cl_exchange_rates=>ty_exchange_rate-rate_type VALUE 'EURX'.
+*   See also note 440870
+    CONSTANTS: gc_rate_type TYPE cl_exchange_rates=>ty_exchange_rate-rate_type VALUE 'M'.
 * local data declarations for preparing the rate storing via BAPI
     DATA: lr_data           TYPE REF TO data,
           base              TYPE string,

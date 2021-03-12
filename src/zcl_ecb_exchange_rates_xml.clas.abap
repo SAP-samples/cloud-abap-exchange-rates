@@ -111,11 +111,9 @@ CLASS zcl_ecb_exchange_rates_xml IMPLEMENTATION.
 
   METHOD store_rates.
 *   Define exchange rate type and source currency exchange rate of import
-*   There is currently an error in exchange rate type customizing; use 'EURX' instead
-*   as M points to EURX as alternative exchange rate type; this "should" not be the case,
-*   see note 440870
-*    CONSTANTS: gc_rate_type TYPE cl_exchange_rates=>ty_exchange_rate-rate_type VALUE 'M',
-    CONSTANTS: gc_rate_type TYPE cl_exchange_rates=>ty_exchange_rate-rate_type VALUE 'EURX',
+*   Note: default customizing "should" work with the default 'M'
+*   See also note 440870
+    CONSTANTS: gc_rate_type TYPE cl_exchange_rates=>ty_exchange_rate-rate_type VALUE 'M',
                gc_base      TYPE cl_exchange_rates=>ty_exchange_rate-from_curr VALUE 'EUR'.
 
     DATA: w_entry           TYPE ty_entry,
