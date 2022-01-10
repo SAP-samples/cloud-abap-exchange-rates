@@ -1,11 +1,11 @@
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/cloud-abap-exchange-rates)](https://api.reuse.software/info/github.com/SAP-samples/cloud-abap-exchange-rates)
 
 # Description
-This example code helps loading currency exchange rates from the European Central Bank into an SAP Cloud Platform, ABAP environment system for utilization in the currency conversion functionality. 
+This example code helps loading currency exchange rates from the European Central Bank into an SAP Business Technology Platform, ABAP environment system for utilization in the currency conversion functionality. 
 
 ## Prerequisites
 
-To use this sample code you need to have access to an SAP Cloud Platform, ABAP environment system with approriately set up ABAP Development Tools (ADT), including abapGit for import of this repository. Also you need a target package to load the code of this repository into.
+To use this sample code you need to have access to an SAP Business Technology Platform, ABAP environment system with approriately set up ABAP Development Tools (ADT), including abapGit for import of this repository. Also you need a target package to load the code of this repository into.
 
 ## Import in ADT
 
@@ -17,13 +17,13 @@ This repository contains two ABAP classes that show two different options on how
 
 Note that retrieving ECB data is just an example; there are other central banks or services that provide different or enhanced data on exchange rates for which the retrieval needs to be altered appropriately, with respect to service link and format, of course.
 
-The classes perform the exchange rate retrieval, convert the retrieved data into the internal storage format and write it to the currency rate customizing table using the respective API class CL_EXCHANGE_RATES (available with the SAP Cloud Platform, ABAP environment 2008 release). On execution as "console app" (by pressing F9) the ABAP console shows the retrieved data in its storage format and provides notice on write. Note that appropriate write authorization must be supplied to actually perform the customizing update (see the classes' source code for details - a corresponding tester role containing the required authorization is supplied with the system deployment).
+The classes perform the exchange rate retrieval, convert the retrieved data into the internal storage format and write it to the currency rate customizing table using the respective API class CL_EXCHANGE_RATES (available with the SAP Business Technology Platform, ABAP environment 2008 release). On execution as "console app" (by pressing F9) the ABAP console shows the retrieved data in its storage format and provides notice on write. Note that appropriate write authorization must be supplied to actually perform the customizing update (see the classes' source code for details - a corresponding tester role containing the required authorization is supplied with the system deployment).
 
 Idea is to encapsulate the currency exchange rate retrieval into an own application job that updates the exchange rates on a daily basis. This should be organized with respect to own demands and boundary conditions.
 
 ## Utilization
 
-These example classes (you just need one, of course) provide currency exchange rates to the currency rate type 'EURX' which is a "standard exchange rate type" provided in the regular system deployment of an SAP Cloud Platform, ABAP environment system (on how to customize exchange rate handling in general is subject to another story). When used correctly, you are able to utilize the CDS function currency_conversion with the "right" exchange rates.
+These example classes (you just need one, of course) provide currency exchange rates to the currency rate type 'EURX' which is a "standard exchange rate type" provided in the regular system deployment of an SAP Business Technology Platform, ABAP environment system (on how to customize exchange rate handling in general is subject to another story). When used correctly, you are able to utilize the CDS function currency_conversion with the "right" exchange rates.
 
       @EndUserText.label: 'Price (in US American Dollars)'
       currency_conversion(
@@ -56,5 +56,4 @@ With the state "as is" actually no contribution is intended; but as usual on Git
 
 ## License
 
-Copyright (c) 2020 SAP SE or an SAP affiliate company. All rights reserved. This project is licensed under the Apache Software License, version 2.0 except as noted otherwise in the [LICENSE](LICENSE) file.
-
+Copyright (c) 2022 SAP SE or an SAP affiliate company. All rights reserved. This project is licensed under the Apache Software License, version 2.0 except as noted otherwise in the [LICENSE](LICENSE) file.
